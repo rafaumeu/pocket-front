@@ -10,6 +10,7 @@ A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 [![React](https://img.shields.io/badge/React-Latest-blue.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-Latest-646CFF.svg)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC.svg)](https://tailwindcss.com/)
+[![Radix UI](https://img.shields.io/badge/RadixUI-Latest-161618.svg)](https://www.radix-ui.com/)
 
 ---
 
@@ -29,6 +30,7 @@ A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=for-the-badge&logo=radix-ui&logoColor=white)
 
 ---
 
@@ -48,9 +50,17 @@ A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 - **Fast Development**: Powered by Vite for lightning-fast hot module replacement
 - **Responsive Design**: Mobile-first approach using TailwindCSS
 - **Developer Experience**: Configured with Biome for consistent code style
+- **UI Components**:
+  - Radix UI primitives for accessible components
+  - Dialog for goal creation
+  - Progress indicators
+  - Radio group for frequency selection
+- **Utility-First CSS**:
+  - TailwindCSS for styling
+  - tailwind-merge for class merging
+  - tailwind-variants for component variants
 - **Component Library**: Custom component library for consistent UI/UX
 - **State Management**: (To be implemented)
-- **Routing**: (To be implemented)
 - **API Integration**: (To be implemented)
 - **Authentication**: (To be implemented)
 - **Testing**: (To be implemented)
@@ -70,8 +80,8 @@ A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/inorbit-frontend.git
-cd inorbit-frontend
+git clone https://github.com/yourusername/pocket-front.git
+cd pocket-front
 ```
 
 2. Install dependencies:
@@ -97,11 +107,12 @@ yarn dev
 ## 🏗️ Project Structure
 
 ```
-inorbit-frontend/
+pocket-front/
 ├── public/          # Static assets
 ├── src/
 │   ├── assets/      # Project assets (images, fonts, etc.)
 │   ├── components/  # Reusable React components
+│   │   └── ui/     # UI components using Radix primitives
 │   ├── styles/      # Global styles and Tailwind configurations
 │   ├── App.tsx      # Main application component
 │   ├── main.tsx     # Application entry point
@@ -113,6 +124,19 @@ inorbit-frontend/
 ├── tsconfig.json    # TypeScript configuration
 └── vite.config.ts   # Vite configuration
 ```
+
+---
+
+## 📱 Components
+
+Current implemented components:
+
+- Goal Creation Dialog
+  - Activity input field
+  - Weekly frequency selection
+  - Save and close functionality
+- Progress Indicators
+- Radio Group Selections
 
 ---
 
@@ -157,9 +181,7 @@ VITE_ENV=development
 
 <div align="center">
 Made with ❤️ by Rafael Dias Zendron
-</div>
 
-<div align="center">
 <img src="https://github.com/rafaumeu.png" width="100" height="100" style="border-radius: 50%;">
 
 ### Built with 💜 by Rafael Zendron
