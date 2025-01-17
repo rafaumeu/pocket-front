@@ -11,10 +11,11 @@
   "dependencies": {
     "@biomejs/biome": "^1.9.4",
     "autoprefixer": "^10.4.20",
+    "lucide-react": "^0.471.1",
     "postcss": "^8.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind": "^4.0.0"
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",
