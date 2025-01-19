@@ -4,11 +4,12 @@ import { DialogTrigger } from './ui/dialog'
 import { InOrbitIcon } from './in-orbit-icon'
 import { Progress, ProgressIndicator } from './ui/progress-bar'
 import { Separator } from './ui/separator'
-import { OutlineButton } from './ui/outline-button'
+
 import { GetSummary } from '../http/get-summary'
 import { useQuery } from '@tanstack/react-query'
 import dayjs from 'dayjs'
 import ptBr from 'dayjs/locale/pt-br'
+import { PendingGoals } from './pending-goals'
 
 dayjs.locale(ptBr)
 export function Summary() {
@@ -23,7 +24,7 @@ export function Summary() {
   const firstDayOfWeek = dayjs().startOf('week').format('D MMM')
   const lastDayOfWeek = dayjs().endOf('week').format('D MMMM')
   const completedPercentage = Math.round((data?.complete * 100) / data?.total)
-  console.log(completedPercentage)
+
   return (
     <div className="py-10 max-w-[480px] px-5 mx-auto flex flex-col gap-6">
       <div className="flex items-center justify-between">
@@ -52,20 +53,7 @@ export function Summary() {
         <span>{completedPercentage}%</span>
       </div>
       <Separator />
-      <div className="flex flex-wrap gap-3">
-        <OutlineButton>
-          <Plus className="size-4 text-zinc400" />
-          Meditar
-        </OutlineButton>
-        <OutlineButton>
-          <Plus className="size-4 text-zinc400" />
-          Nadar
-        </OutlineButton>
-        <OutlineButton>
-          <Plus className="size-4 text-zinc400" />
-          Praticar exercício
-        </OutlineButton>
-      </div>
+      <PendingGoals />
       <div className="flex flex-col gap-6">
         <h2 className="text-xl font-medium">Sua semana</h2>
 
