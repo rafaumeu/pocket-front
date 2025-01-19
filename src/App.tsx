@@ -9,6 +9,7 @@ export function App() {
   const { data } = useQuery({
     queryKey: ['summary'],
     queryFn: GetSummary,
+    staleTime: 1000 * 60 * 10,
   })
   return (
     <Dialog>
