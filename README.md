@@ -31,6 +31,7 @@ A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=for-the-badge&logo=radix-ui&logoColor=white)
+![React Query](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white)
 
 ---
 
@@ -50,18 +51,27 @@ A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 - **Fast Development**: Powered by Vite for lightning-fast hot module replacement
 - **Responsive Design**: Mobile-first approach using TailwindCSS
 - **Developer Experience**: Configured with Biome for consistent code style
+- **Form Management**:
+  - React Hook Form for form state management
+  - Zod for robust form validation
+- **Data Fetching**:
+  - TanStack Query (React Query) for efficient API integration
+  - Automatic caching and background updates
 - **UI Components**:
   - Radix UI primitives for accessible components
-  - Dialog for goal creation
+  - Dialog for goal creation with form validation
   - Progress indicators
   - Radio group for frequency selection
+  - Weekly summary display with dayjs formatting
+  - Pending goals tracking
 - **Utility-First CSS**:
   - TailwindCSS for styling
   - tailwind-merge for class merging
   - tailwind-variants for component variants
+- **Date Handling**:
+  - Day.js integration for date formatting in Portuguese
 - **Component Library**: Custom component library for consistent UI/UX
-- **State Management**: (To be implemented)
-- **API Integration**: (To be implemented)
+- **API Integration**: Implemented with React Query
 - **Authentication**: (To be implemented)
 - **Testing**: (To be implemented)
 
@@ -112,7 +122,9 @@ pocket-front/
 ├── src/
 │   ├── assets/      # Project assets (images, fonts, etc.)
 │   ├── components/  # Reusable React components
-│   │   └── ui/     # UI components using Radix primitives
+│   │   ├── ui/     # UI components using Radix primitives
+│   │   ├── Summary/ # Weekly summary component
+│   │   └── PendingGoals/ # Pending goals component
 │   ├── styles/      # Global styles and Tailwind configurations
 │   ├── App.tsx      # Main application component
 │   ├── main.tsx     # Application entry point
@@ -129,12 +141,20 @@ pocket-front/
 
 ## 📱 Components
 
-Current implemented components:
+Currently implemented components:
 
 - Goal Creation Dialog
-  - Activity input field
-  - Weekly frequency selection
+  - Form validation with Zod
+  - Activity input field with React Hook Form
+  - Weekly frequency selection with Radio Group
   - Save and close functionality
+- Weekly Summary
+  - Date formatting in Portuguese
+  - List of goals by day
+  - Summary statistics
+- Pending Goals Display
+  - Dynamic goal tracking
+  - Status indicators
 - Progress Indicators
 - Radio Group Selections
 
