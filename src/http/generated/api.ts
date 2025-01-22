@@ -136,7 +136,7 @@ export type createGoalResponse = {
 export const getCreateGoalUrl = () => {
 
 
-  return `http://localhost:3000/goals`
+  return `http://localhost:3333/goals`
 }
 
 export const createGoal = async (createGoalBody: CreateGoalBody, options?: RequestInit): Promise<createGoalResponse> => {
@@ -213,7 +213,7 @@ export type createCompletionResponse = {
 export const getCreateCompletionUrl = () => {
 
 
-  return `http://localhost:3000/completions`
+  return `http://localhost:3333/completions`
 }
 
 export const createCompletion = async (createCompletionBody: CreateCompletionBody, options?: RequestInit): Promise<createCompletionResponse> => {
@@ -290,7 +290,7 @@ export type getPendingGoalsResponse = {
 export const getGetPendingGoalsUrl = () => {
 
 
-  return `http://localhost:3000/pending-goals`
+  return `http://localhost:3333/pending-goals`
 }
 
 export const getPendingGoals = async ( options?: RequestInit): Promise<getPendingGoalsResponse> => {
@@ -312,7 +312,7 @@ export const getPendingGoals = async ( options?: RequestInit): Promise<getPendin
 
 
 export const getGetPendingGoalsQueryKey = () => {
-    return [`http://localhost:3000/pending-goals`] as const;
+    return [`http://localhost:3333/pending-goals`] as const;
     }
 
     
@@ -399,7 +399,7 @@ export const getGetWeekSummaryUrl = (params?: GetWeekSummaryParams,) => {
     }
   });
 
-  return normalizedParams.size ? `http://localhost:3000/summary?${normalizedParams.toString()}` : `http://localhost:3000/summary`
+  return normalizedParams.size ? `http://localhost:3333/summary?${normalizedParams.toString()}` : `http://localhost:3333/summary`
 }
 
 export const getWeekSummary = async (params?: GetWeekSummaryParams, options?: RequestInit): Promise<getWeekSummaryResponse> => {
@@ -421,7 +421,7 @@ export const getWeekSummary = async (params?: GetWeekSummaryParams, options?: Re
 
 
 export const getGetWeekSummaryQueryKey = (params?: GetWeekSummaryParams,) => {
-    return [`http://localhost:3000/summary`, ...(params ? [params]: [])] as const;
+    return [`http://localhost:3333/summary`, ...(params ? [params]: [])] as const;
     }
 
     
@@ -501,7 +501,7 @@ export type authenticateFromGithubResponse = {
 export const getAuthenticateFromGithubUrl = () => {
 
 
-  return `http://localhost:3000/auth/github`
+  return `http://localhost:3333/auth/github`
 }
 
 export const authenticateFromGithub = async (authenticateFromGithubBody: AuthenticateFromGithubBody, options?: RequestInit): Promise<authenticateFromGithubResponse> => {
@@ -578,7 +578,7 @@ export type getProfileResponse = {
 export const getGetProfileUrl = () => {
 
 
-  return `http://localhost:3000/profile`
+  return `http://localhost:3333/profile`
 }
 
 export const getProfile = async ( options?: RequestInit): Promise<getProfileResponse> => {
@@ -600,7 +600,7 @@ export const getProfile = async ( options?: RequestInit): Promise<getProfileResp
 
 
 export const getGetProfileQueryKey = () => {
-    return [`http://localhost:3000/profile`] as const;
+    return [`http://localhost:3333/profile`] as const;
     }
 
     
@@ -680,7 +680,7 @@ export type getUserExperienceAndLevelResponse = {
 export const getGetUserExperienceAndLevelUrl = () => {
 
 
-  return `http://localhost:3000/profile/gamification`
+  return `http://localhost:3333/profile/gamification`
 }
 
 export const getUserExperienceAndLevel = async ( options?: RequestInit): Promise<getUserExperienceAndLevelResponse> => {
@@ -702,7 +702,7 @@ export const getUserExperienceAndLevel = async ( options?: RequestInit): Promise
 
 
 export const getGetUserExperienceAndLevelQueryKey = () => {
-    return [`http://localhost:3000/profile/gamification`] as const;
+    return [`http://localhost:3333/profile/gamification`] as const;
     }
 
     
