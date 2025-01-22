@@ -1,17 +1,14 @@
-import { useQuery } from '@tanstack/react-query'
-import { getSummary } from '../http/get-summary'
-import { Dialog } from '../components/ui/dialog'
+import { Dialog } from '@radix-ui/react-dialog'
 import { CreateGoal } from '../components/create-goal'
-import { WeeklySummary } from '../components/summary'
-import { EmptyGoals } from '../components/empty-goals'
+import { WeeklySummary } from '../components/weekly-summary'
+import { useQuery } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
+import { EmptyGoals } from '../components/empty-goals'
+import { useGetWeekSummary } from '../http/generated/api'
 
 export function Application() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['summary'],
-    queryFn: getSummary,
-    staleTime: 1000 * 60 * 10,
-  })
+  const { data, isLoading } = useGetWeekSummary()
+
   if (isLoading || !data) {
     return (
       <div className="h-screen flex items-center justify-center">
@@ -19,14 +16,18 @@ export function Application() {
       </div>
     )
   }
-  return (
-    <Dialog>
-      {data && data.summary.total > 0 ? (
-        <WeeklySummary summary={data.summary} />
-      ) : (
-        <EmptyGoals />
-      )}
-      <CreateGoal />
-    </Dialog>
-  )
+
+  return <div>{JSON.stringify(data, null, 2)}</div>
+
+  // return (
+  //   <Dialog>
+  //     {data.summary.total > 0 ? (
+  //       <WeeklySummary summary={data.summary} />
+  //     ) : (
+  //       <EmptyGoals />
+  //     )}
+
+  //     <CreateGoal />
+  //   </Dialog>
+  // )
 }
