@@ -2,6 +2,7 @@ import { Plus } from 'lucide-react'
 import { OutlineButton } from './ui/outline-button'
 import {
   getGetPendingGoalsQueryKey,
+  getGetUserExperienceAndLevelQueryKey,
   getGetWeekSummaryQueryKey,
   useCreateCompletion,
   useGetPendingGoals,
@@ -17,6 +18,9 @@ export function PendingGoals() {
     await createGoalCompletion({ data: { goalId } })
     queryClient.invalidateQueries({ queryKey: getGetPendingGoalsQueryKey() })
     queryClient.invalidateQueries({ queryKey: getGetWeekSummaryQueryKey() })
+    queryClient.invalidateQueries({
+      queryKey: getGetUserExperienceAndLevelQueryKey(),
+    })
   }
   return (
     <div className="flex flex-wrap gap-3">

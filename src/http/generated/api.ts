@@ -138,7 +138,7 @@ type SecondParameter<T extends (...args: any) => any> = Parameters<T>[1];
 export const getCreateGoalUrl = () => {
 
 
-  return `/goals`
+  return `http://localhost:3333/goals`
 }
 
 export const createGoal = async (createGoalBody: CreateGoalBody, options?: RequestInit): Promise<CreateGoal201> => {
@@ -204,7 +204,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 export const getCreateCompletionUrl = () => {
 
 
-  return `/completions`
+  return `http://localhost:3333/completions`
 }
 
 export const createCompletion = async (createCompletionBody: CreateCompletionBody, options?: RequestInit): Promise<CreateCompletion201> => {
@@ -270,7 +270,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 export const getGetPendingGoalsUrl = () => {
 
 
-  return `/pending-goals`
+  return `http://localhost:3333/pending-goals`
 }
 
 export const getPendingGoals = async ( options?: RequestInit): Promise<GetPendingGoals200> => {
@@ -287,7 +287,7 @@ export const getPendingGoals = async ( options?: RequestInit): Promise<GetPendin
 
 
 export const getGetPendingGoalsQueryKey = () => {
-    return [`/pending-goals`] as const;
+    return [`http://localhost:3333/pending-goals`] as const;
     }
 
     
@@ -368,7 +368,7 @@ export const getGetWeekSummaryUrl = (params?: GetWeekSummaryParams,) => {
     }
   });
 
-  return normalizedParams.size ? `/summary?${normalizedParams.toString()}` : `/summary`
+  return normalizedParams.size ? `http://localhost:3333/summary?${normalizedParams.toString()}` : `http://localhost:3333/summary`
 }
 
 export const getWeekSummary = async (params?: GetWeekSummaryParams, options?: RequestInit): Promise<GetWeekSummary200> => {
@@ -385,7 +385,7 @@ export const getWeekSummary = async (params?: GetWeekSummaryParams, options?: Re
 
 
 export const getGetWeekSummaryQueryKey = (params?: GetWeekSummaryParams,) => {
-    return [`/summary`, ...(params ? [params]: [])] as const;
+    return [`http://localhost:3333/summary`, ...(params ? [params]: [])] as const;
     }
 
     
@@ -459,7 +459,7 @@ export function useGetWeekSummary<TData = Awaited<ReturnType<typeof getWeekSumma
 export const getAuthenticateFromGithubUrl = () => {
 
 
-  return `/auth/github`
+  return `http://localhost:3333/auth/github`
 }
 
 export const authenticateFromGithub = async (authenticateFromGithubBody: AuthenticateFromGithubBody, options?: RequestInit): Promise<AuthenticateFromGithub201> => {
@@ -525,7 +525,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 export const getGetProfileUrl = () => {
 
 
-  return `/profile`
+  return `http://localhost:3333/profile`
 }
 
 export const getProfile = async ( options?: RequestInit): Promise<GetProfile200> => {
@@ -542,7 +542,7 @@ export const getProfile = async ( options?: RequestInit): Promise<GetProfile200>
 
 
 export const getGetProfileQueryKey = () => {
-    return [`/profile`] as const;
+    return [`http://localhost:3333/profile`] as const;
     }
 
     
@@ -616,7 +616,7 @@ export function useGetProfile<TData = Awaited<ReturnType<typeof getProfile>>, TE
 export const getGetUserExperienceAndLevelUrl = () => {
 
 
-  return `/profile/gamification`
+  return `http://localhost:3333/profile/gamification`
 }
 
 export const getUserExperienceAndLevel = async ( options?: RequestInit): Promise<GetUserExperienceAndLevel200> => {
@@ -633,7 +633,7 @@ export const getUserExperienceAndLevel = async ( options?: RequestInit): Promise
 
 
 export const getGetUserExperienceAndLevelQueryKey = () => {
-    return [`/profile/gamification`] as const;
+    return [`http://localhost:3333/profile/gamification`] as const;
     }
 
     
