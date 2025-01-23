@@ -6,11 +6,12 @@
 
 A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-Latest-blue.svg)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-Latest-646CFF.svg)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-blue.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0.11-646CFF.svg)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC.svg)](https://tailwindcss.com/)
 [![Radix UI](https://img.shields.io/badge/RadixUI-Latest-161618.svg)](https://www.radix-ui.com/)
+[![React Query](https://img.shields.io/badge/React_Query-5.64.2-FF4154.svg)](https://tanstack.com/query/latest)
 
 ---
 
@@ -40,40 +41,45 @@ A modern React TypeScript frontend application powered by Vite and TailwindCSS.
 ![Biome](https://img.shields.io/badge/Biome-60A5FA?style=for-the-badge&logo=biome&logoColor=white)
 ![PostCSS](https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white)
 ![Yarn](https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white)
+![Orval](https://img.shields.io/badge/Orval-API_Client_Generator-3178C6?style=for-the-badge)
 
 ---
 </div>
 
 ## 🚀 Features
 
-- **Modern React**: Built with the latest React features including hooks and functional components
-- **Type Safety**: Full TypeScript support for enhanced development experience
-- **Fast Development**: Powered by Vite for lightning-fast hot module replacement
-- **Responsive Design**: Mobile-first approach using TailwindCSS
+- **Modern React**: Built with React 19.0.0 and latest functional components
+- **Type Safety**: Full TypeScript support (v5.7.3)
+- **Fast Development**: Powered by Vite 6.0.11 with hot module replacement
+- **Responsive Design**: Mobile-first approach using TailwindCSS 3.4
 - **Developer Experience**: Configured with Biome for consistent code style
+- **API Client Management**:
+  - Orval for type-safe API client generation
+  - Dynamic API base URL configuration
+  - Custom HTTP client implementation
 - **Form Management**:
-  - React Hook Form for form state management
+  - React Hook Form for state management
   - Zod for robust form validation
 - **Data Fetching**:
-  - TanStack Query (React Query) for efficient API integration
+  - TanStack Query (React Query v5.64.2) for efficient API integration
   - Automatic caching and background updates
 - **UI Components**:
   - Radix UI primitives for accessible components
-  - Dialog for goal creation with form validation
-  - Progress indicators
-  - Radio group for frequency selection
-  - Weekly summary display with dayjs formatting
+  - Goal creation dialog with form validation
+  - Weekly summary display
   - Pending goals tracking
+  - Toast notifications with Sonner
+- **Cookie Management**:
+  - Universal Cookie for handling browser cookies
 - **Utility-First CSS**:
   - TailwindCSS for styling
-  - tailwind-merge for class merging
-  - tailwind-variants for component variants
+  - Tailwind merge and variants for advanced styling
 - **Date Handling**:
-  - Day.js integration for date formatting in Portuguese
-- **Component Library**: Custom component library for consistent UI/UX
-- **API Integration**: Implemented with React Query
-- **Authentication**: (To be implemented)
-- **Testing**: (To be implemented)
+  - Day.js for date formatting in Portuguese
+- **Authentication**:
+  - GitHub authentication callback support
+- **Streaming**:
+  - Turbo Stream integration for real-time functionality
 
 ---
 
@@ -106,7 +112,7 @@ yarn install
 cp .env.example .env
 ```
 
-4. Start the development server:
+4. Start the development server with Orval:
 
 ```bash
 yarn dev
@@ -120,80 +126,71 @@ yarn dev
 pocket-front/
 ├── public/          # Static assets
 ├── src/
-│   ├── assets/      # Project assets (images, fonts, etc.)
+│   ├── assets/      # Project assets
 │   ├── components/  # Reusable React components
-│   │   ├── ui/     # UI components using Radix primitives
-│   │   ├── Summary/ # Weekly summary component
-│   │   └── PendingGoals/ # Pending goals component
-│   ├── styles/      # Global styles and Tailwind configurations
+│   │   ├── ui/      # UI components
+│   │   ├── weekly-summary/
+│   │   └── pending-goals/
+│   ├── http/        # API client and HTTP utilities
+│   │   ├── client.ts
+│   │   └── generated/
+│   ├── pages/       # Application pages
 │   ├── App.tsx      # Main application component
 │   ├── main.tsx     # Application entry point
-│   └── index.css    # Global CSS file
-├── tests/           # Test files
-├── biome.json       # Biome configuration
-├── postcss.config.js # PostCSS configuration
-├── tailwind.config.js # Tailwind CSS configuration
-├── tsconfig.json    # TypeScript configuration
-└── vite.config.ts   # Vite configuration
+│   └── index.css    # Global styles
+├── tests/           # Test files (planned)
+├── orval.config.ts  # API client configuration
+├── biome.json       # Code style configuration
+└── vite.config.ts   # Build configuration
 ```
 
 ---
 
 ## 📱 Components
 
-Currently implemented components:
-
 - Goal Creation Dialog
-  - Form validation with Zod
-  - Activity input field with React Hook Form
-  - Weekly frequency selection with Radio Group
-  - Save and close functionality
 - Weekly Summary
-  - Date formatting in Portuguese
-  - List of goals by day
-  - Summary statistics
 - Pending Goals Display
-  - Dynamic goal tracking
-  - Status indicators
 - Progress Indicators
-- Radio Group Selections
+- Authentication Callback Handler
 
 ---
 
 ## 🧪 Running Tests
 
 ```bash
-yarn test
+yarn test  # To be implemented
 ```
 
 ---
 
 ## 📚 Documentation
 
-Component documentation and usage examples will be available using Storybook (to be implemented).
+- Component documentation (Future Storybook integration)
+- API client documentation via Orval
 
 ---
 
 ## 🛡️ License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License
 
 ---
 
 ## 🤝 Contributing
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'feat: add some amazing feature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create Feature Branch
+3. Commit Changes
+4. Push to Branch
+5. Open Pull Request
 
 ---
 
 ## 🔧 Environment Variables
 
 ```env
-VITE_API_URL=http://localhost:3000
+VITE_API_URL=http://localhost:3333
 VITE_ENV=development
 ```
 
@@ -201,7 +198,9 @@ VITE_ENV=development
 
 <div align="center">
 Made with ❤️ by Rafael Dias Zendron
+</div>
 
+<div align="center">
 <img src="https://github.com/rafaumeu.png" width="100" height="100" style="border-radius: 50%;">
 
 ### Built with 💜 by Rafael Zendron
