@@ -16,8 +16,13 @@ import { Button } from './ui/button'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { createGoal } from '../http/create-goals'
+
 import { useQueryClient } from '@tanstack/react-query'
+import {
+  getGetPendingGoalsQueryKey,
+  useCreateGoal,
+} from '../http/generated/api'
+import { toast } from 'sonner'
 
 const createGoalForm = z.object({
   title: z
@@ -32,14 +37,20 @@ export function CreateGoal() {
     useForm<createGoalForm>({
       resolver: zodResolver(createGoalForm),
     })
+  const { mutateAsync: createGoal } = useCreateGoal()
   async function handleCreateGoal({
     title,
     desiredWeeklyFrequency,
   }: createGoalForm) {
-    await createGoal({ title, desiredWeeklyFrequency })
-    queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
-    queryClient.invalidateQueries({ queryKey: ['summary'] })
-    reset()
+    try {
+      await createGoal({ data: { title, desiredWeeklyFrequency } })
+      queryClient.invalidateQueries({ queryKey: getGetPendingGoalsQueryKey() })
+      queryClient.invalidateQueries({ queryKey: getGetPendingGoalsQueryKey() })
+      reset()
+      toast.success('Meta criada com sucesso')
+    } catch (error) {
+      toast.error('Erro ao criar meta, tente novamente')
+    }
   }
   return (
     <DialogContent>
