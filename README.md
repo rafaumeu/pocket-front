@@ -201,7 +201,9 @@ VITE_ENV=development
 
 <div align="center">
 Made with ❤️ by Rafael Dias Zendron
+</div>
 
+<div align="center">
 <img src="https://github.com/rafaumeu.png" width="100" height="100" style="border-radius: 50%;">
 
 ### Built with 💜 by Rafael Zendron
