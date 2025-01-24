@@ -20,6 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useQueryClient } from '@tanstack/react-query'
 import {
   getGetPendingGoalsQueryKey,
+  getGetWeekSummaryQueryKey,
   useCreateGoal,
 } from '../http/generated/api'
 import { toast } from 'sonner'
@@ -45,7 +46,7 @@ export function CreateGoal() {
     try {
       await createGoal({ data: { title, desiredWeeklyFrequency } })
       queryClient.invalidateQueries({ queryKey: getGetPendingGoalsQueryKey() })
-      queryClient.invalidateQueries({ queryKey: getGetPendingGoalsQueryKey() })
+      queryClient.invalidateQueries({ queryKey: getGetWeekSummaryQueryKey() })
       reset()
       toast.success('Meta criada com sucesso')
     } catch (error) {
